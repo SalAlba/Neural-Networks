@@ -54,7 +54,7 @@ void draw(){
   /**********************************************************************************/
   /*
   *
-  Training one_point = points[trainingIndex];
+  Point one_point = points[trainingIndex];
   float[] inputs = {one_point.x, one_point.y};
   int target = one_point.label;
   perceptron.train(inputs, target);
