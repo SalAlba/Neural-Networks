@@ -3,7 +3,7 @@
 public class Perceptron{
   // fields ...
   private float[] weight;
-  private float learinig_rate = 0.1;
+  private float learinig_rate = 0.21;
   //private final int NUM_INPUT = 3;  
   
   // constructor ...
@@ -41,7 +41,7 @@ public class Perceptron{
     float w0 = weight[0];
     float w1 = weight[1];
     float w2 = weight[2];
-    return -(w0/w1) * x - (w2/w1);
+    return  - (w2/w1)-(w0/w1) * x;
   }
   
   // private ...
