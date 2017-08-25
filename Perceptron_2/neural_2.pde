@@ -19,20 +19,19 @@ void draw(){
   background(255);
   
   stroke(0); 
-  //line(0, height, width, 0);
   Point p1 = new Point(-1, f(-1));
-  Point p2 = new Point(1, f(1));
-  
+  Point p2 = new Point(1, f(1));  
   line(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-  
   Point p3 = new Point(-1, perceptron.getY(-1));
   Point p4 = new Point(1, perceptron.getY(1));
+  stroke(204, 0, 0);
   line(p3.getX(), p3.getY(), p4.getX(), p4.getY());
   
   for(int i=0; i< points.length; i++){
     points[i].show();
   }
   
+  // ...
   for(int i=0; i< points.length; i++){
     float[] inputs = {points[i].x, points[i].y, points[i].BIAS};
     int target = points[i].label;
