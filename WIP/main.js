@@ -82,7 +82,7 @@ var updateWeight = (d, y, x) => {
     for(var i=0; i<weight.length; i++){
         weight[i] = weight[i] + lr * (d - y) * x[i];
     }
-    console.log(weight);
+    // console.log(weight);
 }
 
 
@@ -171,10 +171,26 @@ var linear_activation = (netOutput) => {
 
 // ...
 initWeights();
-var net = netOutput();
-linear_activation(net);
-updateWeight();
 
-while( lpd != k){
-
+// lpd != L.length ||  //never ending
+while(  t != 5){
+    if(k == L.length)  k = 0;
+    //
+    console.log('epoch : '+t);
+    console.log('weight :'+ weight)
+    console.log('input :'+ [BIAS, ...L[k].x]);
+    
+    var net = netOutput();
+    var y = activation(net);
+    var x = [BIAS, ...L[k].x];
+    updateWeight(L[k].d, y, x);
+    
+    if(y == L[k].d) 
+        lpd++;
+    
+    k++;
+    t++;
+    
+    console.log('updated weight :'+ weight)
+    console.log('--------------------------');
 }
